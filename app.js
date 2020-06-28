@@ -1,3 +1,7 @@
+
+
+
+
 // Create divs
 
 const selectContainer = document.querySelector('.container');
@@ -20,7 +24,7 @@ function createDivs() {
     let colorThis = document.querySelectorAll('.colorThis');
     colorThis.forEach((div) => {
       div.addEventListener('mouseover', (e) => {
-        e.target.style.background = 'blue';
+        e.target.style.background = '#191970';
       })
     })
     }
@@ -29,9 +33,15 @@ function createDivs() {
 
  let reset = document.querySelector('.reset');
 
+function resetDivColors() {
+  let colorThis = document.querySelectorAll('.colorThis');
+    colorThis.forEach((div) => {
+      div.style.background = 'darkgray';
+    });
+}
+
 reset.addEventListener('click', () => {
-  deleteDivs();
-  emptyList();
+  resetDivColors();
 });
 
 function deleteDivs() {
@@ -46,14 +56,14 @@ function emptyList() {
 }
 
 function mediumGrid() {
-  selectContainer.style.gridTemplateColumns = 'repeat(16, 1fr';
+  selectContainer.style.gridTemplateColumns = 'repeat(8, 1fr';
 }
 
 function makeMediumGrid() {
   deleteDivs();
   emptyList();
   mediumGrid();
-  addToDivList(256);
+  addToDivList(64);
   createDivs();
 }
 
@@ -61,7 +71,7 @@ function makeSmallGrid() {
   deleteDivs();
   emptyList();
   smallGrid(); 
-  addToDivList(64);
+  addToDivList(16);
   createDivs();
 }
 
@@ -69,16 +79,16 @@ function makeBigGrid() {
   deleteDivs();
   emptyList();
   bigGrid();
-  addToDivList(1024);
+  addToDivList(256);
   createDivs();
 }
 
 function bigGrid() {
-  selectContainer.style.gridTemplateColumns = 'repeat(32, 1fr';
+  selectContainer.style.gridTemplateColumns = 'repeat(16, 1fr';
 }
 
 function smallGrid() {
-  selectContainer.style.gridTemplateColumns = 'repeat(8, 1fr)';
+  selectContainer.style.gridTemplateColumns = 'repeat(4, 1fr)';
 }
 
 const smallButton = document.querySelector('.small');
@@ -91,3 +101,4 @@ smallButton.addEventListener('click', (makeSmallGrid));
 mediumButton.addEventListener('click', (makeMediumGrid));
 bigButton.addEventListener('click', (makeBigGrid));
 
+makeMediumGrid();
