@@ -1,7 +1,5 @@
 
 
-
-
 // Create divs
 
 const selectContainer = document.querySelector('.container');
@@ -14,7 +12,7 @@ function addToDivList(num) {
   }
 }
 
-
+// Create divs 
 function createDivs() {
   for (i = 0; i < divList.length; i++) {
     let newDiv = document.createElement('div');
